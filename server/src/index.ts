@@ -20,4 +20,4 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api", Routes);
 
 // * Start Server
-app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server is running on PORT ${PORT}`));
