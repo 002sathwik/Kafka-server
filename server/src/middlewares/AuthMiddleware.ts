@@ -4,6 +4,7 @@ import { NextFunction, Request, Response } from 'express';
 
 const AuthMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
+    
     const authHeader = req.headers.authorization
 
     if (authHeader === null || authHeader === undefined) {
