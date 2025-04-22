@@ -12,6 +12,9 @@ router.post("/auth/login", AuthController.login)
 
 
 router.post("/chat-group", AuthMiddleware, ChatGroupController.store)
+router.get("/chat-group/:id", AuthMiddleware, ChatGroupController.show)
+router.get("/chat-group", AuthMiddleware, ChatGroupController.index)
+router.put("/chat-group/:id", AuthMiddleware, ChatGroupController.update)
 
 
 export default router

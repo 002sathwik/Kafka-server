@@ -1,6 +1,7 @@
 import { CHAT_GROUP, CHAT_GROUP_USERS } from "@/lib/apiAuthRoutes";
 
 export async function fetchChatGroups(token: string) {
+  console.log("Fetching chat groups with token:", token);
   const res = await fetch(CHAT_GROUP, {
     headers: {
       Authorization: token,
@@ -10,15 +11,15 @@ export async function fetchChatGroups(token: string) {
       tags: ["dashboard"],
     },
   });
-
+  console.log("Response status:", res.status);
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
   const response = await res.json();
   if (response?.data) {
     return response?.data;
   }
+  console.log("Response data:", response?.data);
   return [];
 }
 
@@ -43,7 +44,6 @@ export async function fetchChatGroupUsers(id: string) {
   });
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
   const response = await res.json();
